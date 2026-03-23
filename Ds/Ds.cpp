@@ -13,6 +13,9 @@ int main()
 	cout << "\nValIs = " << Db.GetItem(2) << endl;
 	Db.UpdateItem(2, ":::::");
 	Db.PrintList();
+	cout << endl << endl;
+	Db.InsertAfter(2, "KOKO");
+	Db.PrintList();
 }
 //git@github.com:s-a-m-y1/13---Algorithms-Problem-Solving-Level-5.git
 

@@ -210,29 +210,36 @@ public:
 		return NodeOfItem->Val;
 	}
 	
-	void UpdateItem(int Index , T Update)
+	bool UpdateItem(int Index , T Update)
 	{
 
 		Node* NodeUpdate = GetNode(Index);
-		if (NodeUpdate == nullptr) return ;
+		if (NodeUpdate == nullptr) 
+		return false;
+		else
 		NodeUpdate->Val = Update;
-		return;
+		return true;
 	}
-	
-};	
-/// 3 index 0->1->2
-
-/*Node* GetNode(int SearchOfIndex)
+	/// <summary>
+	/// CLEAN CODE 
+	/// </summary>
+	/// <param name="Index"></param>
+	/// <param name="Val"></param>
+	/// 
+	///
+	bool InsertAfter(int Index  , T Val )
 	{
-		if (Head == nullptr || SearchOfIndex>_Size-1 || SearchOfIndex < 0 )return nullptr;
-		Node* Current = Head;
-		int counter = 0;
-		while (Current!=nullptr&&SearchOfIndex !=counter)
+		Node* Newinser = GetNode(Index);
+		if (Newinser==nullptr)
 		{
-		Current = Current->Next;
-		counter++;
-		}
-		return Current;
+			return false;
 
+		}
+		else
+		InsertAfter(Newinser, Val);
+		return true;
+
+		
 	}
-		*/
+
+};	
