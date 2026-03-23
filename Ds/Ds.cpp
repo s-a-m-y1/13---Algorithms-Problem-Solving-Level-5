@@ -5,23 +5,15 @@ using namespace std;
 int main()
 {
 	clsDblLinkedList<string>Db;
-	if (Db.ISEmpty())
-	{
-		cout << "Empty";
-	}
-	else
-	{
-		cout << " Notempty";
-	}
-	Db.InsertAtBeginning("sasa");
-
-	if (Db.ISEmpty())
-	{
-		cout << "Empty";
-	}
-	else
-	{
-		cout << " Notempty";
-	}
+	Db.InsertAtBeginning("samy:>");
+	Db.InsertAtBeginning("sam:>");
+	Db.InsertAtBeginning("semsem:>");
+	Db.InsertAtBeginning("samsemo:>");
+	Db.PrintList();
+	cout << "\nValIs = " << Db.GetItem(2) << endl;
+	Db.UpdateItem(2, ":::::");
+	Db.PrintList();
 }
 //git@github.com:s-a-m-y1/13---Algorithms-Problem-Solving-Level-5.git
+
+//s-a-m-y1 

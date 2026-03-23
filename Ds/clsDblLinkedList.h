@@ -131,7 +131,7 @@ public:
 		Node* hold = Head;
 		while (hold != nullptr)
 		{
-			cout << hold->Val << endl;
+			cout << hold->Val;
 
 			hold = hold->Next;
 		}
@@ -144,7 +144,95 @@ public:
 
 	bool ISEmpty()
 	{
-		
+
 		return(Head == nullptr && _Size == 0) ? true : false;
 	}
+
+	void Clear()
+	{
+
+		while (_Size > 0)
+		{
+			DeleteFitstNode();
+
+
+		}
+
+	}
+
+	void Revers()
+	{
+		if (Head == nullptr)
+		{
+			return;
+		}
+		Node* Ptr_Node = Head;
+		Node* prev_Node = nullptr;
+
+		while (Ptr_Node != nullptr)
+		{
+			prev_Node = Ptr_Node->Prev;/// null ? ' the prev_node point null before 
+
+			Ptr_Node->Prev = Ptr_Node->Next;///here prev Storage at prev adderss Edit 
+			Ptr_Node->Next = prev_Node; /// here next  = 
+
+			Ptr_Node = Ptr_Node->Prev;
+
+		}
+		if (prev_Node != nullptr)
+		{
+			Head = prev_Node->Prev;
+		}
+	}
+
+	Node* GetNode(int Index)
+	{
+		if (Head == nullptr || Index > _Size - 1 || Index < 0)return nullptr;
+		Node* Current = Head;
+		int counter = 0;
+		while (Current != nullptr && (Current->Next != nullptr))
+		{
+			if (counter == Index) break;
+
+			Current = Current->Next;
+			counter++;
+		}
+		return Current;
+
+
+	}
+
+
+	T GetItem(int ItemOf)
+	{
+		Node* NodeOfItem = GetNode(ItemOf);
+		if (NodeOfItem == nullptr) return 0 ;
+		return NodeOfItem->Val;
+	}
+	
+	void UpdateItem(int Index , T Update)
+	{
+
+		Node* NodeUpdate = GetNode(Index);
+		if (NodeUpdate == nullptr) return ;
+		NodeUpdate->Val = Update;
+		return;
+	}
+	
 };	
+/// 3 index 0->1->2
+
+/*Node* GetNode(int SearchOfIndex)
+	{
+		if (Head == nullptr || SearchOfIndex>_Size-1 || SearchOfIndex < 0 )return nullptr;
+		Node* Current = Head;
+		int counter = 0;
+		while (Current!=nullptr&&SearchOfIndex !=counter)
+		{
+		Current = Current->Next;
+		counter++;
+		}
+		return Current;
+
+	}
+		*/
