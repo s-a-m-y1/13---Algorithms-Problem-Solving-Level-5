@@ -30,6 +30,20 @@ int main()
 	Queue.pop();
 	cout << "After Pop FIFO : " << endl;
 	Queue.print();
+	Queue.UpdateItem(1, "I'm");
+	Queue.print();
+	Queue.InsertatFront("sss");
+	Queue.print();
+	Queue.Insertatback("yyy");
+	Queue.print();
+	Queue.GetItem(2);
+	Queue.print();
+	Queue.Revers();
+	Queue.print();
+	Queue.InsertAfter(2 ,  "help. . . ");
+	Queue.print();
+	Queue.Clear();
+	Queue.print();
 }
 //git@github.com:s-a-m-y1/13---Algorithms-Problem-Solving-Level-5.git
 
