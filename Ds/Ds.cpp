@@ -1,7 +1,7 @@
 
 #include <iostream>
 using namespace std;
-//#include"clsDblLinkedList.h"
+#include"clsDblLinkedList.h"
 #include"clsMyQueue.h"
 int main()
 {
@@ -18,17 +18,19 @@ int main()
 	//Db.InsertAfter(2, "KOKO");
 	//Db.PrintList();
 	clsMyQueue<string>Queue;
+	//
 	Queue.Push("ssss");
 	Queue.Push("aaaa");
-	Queue.Push("mmmm");
+    Queue.Push("mmmm");
 	Queue.Push("yyyy");
-	//Queue.Print();
-	//cout << "Size : " << Queue.Size() << endl;
-	//cout << "Front : " << Queue.front() << endl;
-	//cout << "back : " << Queue.back() << endl;
+	Queue.print();
+	cout << "Size : " << Queue.Size() << endl;
+	cout << "Front : " << Queue.front() << endl;
+	cout << "back : " << Queue.back() << endl;
 	Queue.pop();
-	Queue.Print();
+	cout << "After Pop FIFO : " << endl;
+	Queue.print();
 }
 //git@github.com:s-a-m-y1/13---Algorithms-Problem-Solving-Level-5.git
 
-//s-a-m-y1 
+//s-a-m-y1	
