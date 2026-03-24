@@ -2,6 +2,7 @@
 #include <iostream>
 using namespace std;
 #include"clsDblLinkedList.h"
+#include"clsMyStack.h"
 #include"clsMyQueue.h"
 int main()
 {
@@ -17,33 +18,46 @@ int main()
 	//cout << endl << endl;
 	//Db.InsertAfter(2, "KOKO");
 	//Db.PrintList();
-	clsMyQueue<string>Queue;
-	//
-	Queue.Push("ssss");
-	Queue.Push("aaaa");
-    Queue.Push("mmmm");
-	Queue.Push("yyyy");
-	Queue.print();
-	cout << "Size : " << Queue.Size() << endl;
-	cout << "Front : " << Queue.front() << endl;
-	cout << "back : " << Queue.back() << endl;
-	Queue.pop();
-	cout << "After Pop FIFO : " << endl;
-	Queue.print();
-	Queue.UpdateItem(1, "I'm");
-	Queue.print();
-	Queue.InsertatFront("sss");
-	Queue.print();
-	Queue.Insertatback("yyy");
-	Queue.print();
-	Queue.GetItem(2);
-	Queue.print();
-	Queue.Revers();
-	Queue.print();
-	Queue.InsertAfter(2 ,  "help. . . ");
-	Queue.print();
-	Queue.Clear();
-	Queue.print();
+//	clsMyQueue<string>Queue;
+//	//
+//	Queue.Push("ssss");
+//	Queue.Push("aaaa");
+//    Queue.Push("mmmm");
+//	Queue.Push("yyyy");
+//	Queue.print();
+//	cout << "Size : " << Queue.Size() << endl;
+//	cout << "Front : " << Queue.front() << endl;
+//	cout << "back : " << Queue.back() << endl;
+//	Queue.pop();
+//	cout << "After Pop FIFO : " << endl;
+//	Queue.print();
+//	Queue.UpdateItem(1, "I'm");
+//	Queue.print();
+//	Queue.InsertatFront("sss");
+//	Queue.print();
+//	Queue.Insertatback("yyy");
+//	Queue.print();
+//	Queue.GetItem(2);
+//	Queue.print();
+//	Queue.Revers();
+//	Queue.print();
+//	Queue.InsertAfter(2 ,  "help. . . ");
+//	Queue.print();
+//	Queue.Clear();
+//	Queue.print();
+	clsMyStack<string>Stack;
+	Stack.push("samy");
+	Stack.push("Git");
+	Stack.push("GitHub");
+	Stack.push("Repo");
+	Stack.print();
+	cout << "-------------------------------" << endl;
+	cout << "Size : " << Stack.Size() << endl;
+	cout << "Top : " << Stack.Top() << endl;
+	cout << "Bottom : " << Stack.Bottom() << endl;
+	cout << "-------------------------------" << endl;
+	Stack.Revers();
+	Stack.print();
 }
 //git@github.com:s-a-m-y1/13---Algorithms-Problem-Solving-Level-5.git
 

@@ -131,7 +131,7 @@ public:
 		Node* hold = Head;
 		while (hold != nullptr)
 		{
-			cout << hold->Val;
+			cout << hold->Val<<endl;
 
 			hold = hold->Next;
 		}
