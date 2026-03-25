@@ -9,18 +9,18 @@ class clsMyStack:public clsMyQueue <T>
 public:
 	void push(T Val)
 	{
-		clsMyQueue<T>::Queue.InsertAtBeginning(Val);
+		this->clsMyQueue<T>::Queue.InsertAtBeginning(Val);
 	}
 
 	T Top()
 	{
 
-		clsMyQueue<T>::front();
+	return 	clsMyQueue<T>::front();
 	}
 
 	T Bottom()
 	{
-		clsMyQueue<T>::back();
+	return	clsMyQueue<T>::back();
 	}
 };
 

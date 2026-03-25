@@ -3,6 +3,7 @@
 using namespace std;
 #include"clsDblLinkedList.h"
 #include"clsMyStack.h"
+#include"clsDynamicArray.h"
 #include"clsMyQueue.h"
 int main()
 {
@@ -45,19 +46,37 @@ int main()
 //	Queue.print();
 //	Queue.Clear();
 //	Queue.print();
-	clsMyStack<string>Stack;
-	Stack.push("samy");
-	Stack.push("Git");
-	Stack.push("GitHub");
-	Stack.push("Repo");
-	Stack.print();
-	cout << "-------------------------------" << endl;
-	cout << "Size : " << Stack.Size() << endl;
-	cout << "Top : " << Stack.Top() << endl;
-	cout << "Bottom : " << Stack.Bottom() << endl;
-	cout << "-------------------------------" << endl;
-	Stack.Revers();
-	Stack.print();
+	//clsMyStack<string>Stack;
+	//Stack.push("samy");
+	//Stack.push("Git");
+	//Stack.push("GitHub");
+	//Stack.push("Repo");
+	//Stack.print();
+	//cout << "-------------------------------" << endl;
+	//cout << "Size : " << Stack.Size() << endl;
+	//cout << "Top : " << Stack.Top() << endl;
+	//cout << "Bottom : " << Stack.Bottom() << endl;
+	//cout << "-------------------------------" << endl;
+	//Stack.Revers();
+	//Stack.print();
+	clsDynamicArray<int>ll(2);
+	
+	ll.SetItem(0,2);
+	ll.SetItem(1, 3);
+	cout << "Size" << ll.Size() << endl;
+	ll.PrintList();
+	cout << endl;
+
+	cout << "\nAfter :)\n" << endl;
+
+	ll.Resize(10);
+	ll.PrintList();
+	cout << "\nSize" << ll.Size() << endl;
+
+	//ll.Resize(100);
+	//ll.PrintList();
+	//cout << "\nSize" << ll.Size() << endl;
+
 }
 //git@github.com:s-a-m-y1/13---Algorithms-Problem-Solving-Level-5.git
 
