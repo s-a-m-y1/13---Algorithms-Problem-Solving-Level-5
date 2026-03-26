@@ -73,14 +73,21 @@ int main()
 
 	cout << "Size" << ll.Size() << endl;
 	ll.PrintList();
-	cout << endl;
-	cout << "This Ietem : " << ll.GetItem(0) << endl;
+	//cout << endl;
+	//cout << "This Ietem : " << ll.GetItem(0) << endl;
 
-	ll.Revers();
-	ll.PrintList();
+	//ll.Revers();
+	//ll.PrintList();
 	 
-	ll.Clear();
+	//ll.Clear();
+	cout << endl;
+	cout << endl;
+	ll.DeleteItem(3);
 	ll.PrintList();
+	cout << "\n\nSize" << ll.Size() << endl;
+
+
+
 	//cout << "\nAfter :)\n" << endl;
 
 	//ll.Resize(10);
