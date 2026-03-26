@@ -17,22 +17,18 @@ public:
 		Original_Array = new T[_Size];
 
 	}
-
 	~clsDynamicArray()
 	{
 		delete[]Original_Array;
 	}
-
 	bool SetItem(int Index, T Val)
 	{
 		return (Index >= _Size || _Size < 0) ? false : (Original_Array[Index] = Val, true);
 	}
-
 	bool IsEmpty()
 	{
 		return(_Size == 0);
 	}
-
 	int Size()
 	{
 		return (_Size);
@@ -46,12 +42,11 @@ public:
 		}
 		for (int i = 0; i <= _Size - 1; i++)
 		{
-			cout << " " << Original_Array[i];
+			cout << " " << Original_Array[i] << endl;
 
 		}
 
 	}
-
 	void Resize(int NewResize)
 	{
 
@@ -73,7 +68,6 @@ public:
 		delete[]Original_Array;
 		Original_Array = _Temp_Array;
 	}
-
 	void Revers()
 	{
 		_Temp_Array = new T[_Size];
@@ -94,60 +88,79 @@ public:
 		Original_Array = _Temp_Array;
 
 	}
-
 	T GetItem(int Index)
 	{
 		if (IsEmpty())return T();
 
 		return(Index < 0) ? Original_Array[0] : (Index >= _Size) ? Original_Array[_Size - 1] : Original_Array[Index];
-
 	}
-	void DeleteItem(int Item)
+
+	bool DeleteItem(int Item)
 	{
-		if (IsEmpty())return;
-		Item = (Item < 0) ? 0 : (Item >= _Size) ? _Size - 1 : Item;
+		if (Item >= _Size || Item < 0)return false;
+	_Size--;
 
-		_Temp_Array = new T[_Size - 1];
-		int counetr = 0;
-		for (int i = 0;i < _Size ;i++)
-		{
-			
-			if (i == Item)
-			{
-			continue;
-			}
-			_Temp_Array[counetr] = Original_Array[i];
-			counetr++;
-		}
-		_Size= counetr;
-		delete[]Original_Array;
-		Original_Array = _Temp_Array;
+	_Temp_Array = new T[_Size];
+
+	for (int i = 0;i < Item;i++)
+	{
+	_Temp_Array[i] = Original_Array[i];
+
 	}
+	for (int i = Item + 1;i < _Size;i++)
+	{
+		_Temp_Array[i - 1] = Original_Array[i];
+	}
+	delete[] Original_Array;
+
+	Original_Array = _Temp_Array;
+	return true;
+	}
+
+	bool DeleteFirstItem( )
+	{
+
+		if (DeleteItem(0))
+		{
+			_Size--;
+			return true;
+		}
+		return false;
+	}
+	bool DeleteLastItem( )
+	{
+		if (DeleteItem(_Size-1))
+		{
+			_Size--;
+			return true;
+
+		}
+		return false;
+
+	}
+	///  Find Array If IS true return Val IS Not return -1 
+int	FindByVal(T Val )
+	{
+		for (int i = 0; i < _Size;i++)
+		{
+			if (Val==Original_Array[i])
+			{
+				return i;
+			}
+		}
+		return -1;
+	  	
+    }
+
+bool DeleteItemByVal(T Val)
+{
+	int Index = FindByVal(Val);/// Index 
+	if (DeleteItem(Index))
+	{
+		return true;
+    }
+	return false;
+
+}
 };
 
-//// Size9
-//15 54 53 45 45 45 56 15 123
-//
-/// 3 /// 0 1 2 3 -1  0 1 2 /// 
-
-
-/*void Revers()
-{
-
-	
-	for (int i = 0; i < _Size / 2;i++)
-	{
-		T Temp = Original_Array[i];
-
-		Original_Array[i] = Original_Array[_Size - 1 - i];
-		Original_Array[_Size - 1 - i] = Temp;
-	}
-	
-}*/
-
-/*void Clear()
-{
-	_Size = 0;
-	delete[]Original_Array;
-	Original_Array = nullptr;
-}*/

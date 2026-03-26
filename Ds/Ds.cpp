@@ -61,33 +61,42 @@ int main()
 	//Stack.print();
 	clsDynamicArray<int>ll(9);
 	
-	ll.SetItem(0,15);
-	ll.SetItem(1, 54);
-	ll.SetItem(2, 53);
-	ll.SetItem(3, 45);
-	ll.SetItem(4, 45);
-	ll.SetItem(5, 45);
-	ll.SetItem(6, 56);
-	ll.SetItem(7, 15);
-	ll.SetItem(8, 123);
+	ll.SetItem(0,1);
+	ll.SetItem(1, 2);
+	ll.SetItem(2, 3);
+	ll.SetItem(3, 4);
+	ll.SetItem(4, 5);
+	ll.SetItem(5, 6);
+	ll.SetItem(6, 7);
+	ll.SetItem(7, 8);
+	ll.SetItem(8, 9);
 
 	cout << "Size" << ll.Size() << endl;
 	ll.PrintList();
 	//cout << endl;
 	//cout << "This Ietem : " << ll.GetItem(0) << endl;
+	cout<<"The Val = "<< ll.FindByVal(3) << endl;
+	
+
+	ll.DeleteItemByVal(3);
 
 	//ll.Revers();
-	//ll.PrintList();
+	ll.PrintList();
 	 
 	//ll.Clear();
-	cout << endl;
-	cout << endl;
-	ll.DeleteItem(3);
-	ll.PrintList();
-	cout << "\n\nSize" << ll.Size() << endl;
+	//cout << endl;
+	//cout << endl;
+	//ll.DeleteItem(3);
+	//ll.PrintList();
+	//cout << "\n\nSize" << ll.Size() << endl;
 
+	//cout << "\n\nFirst:}" << endl;
+	//ll.DeleteFirstItem();
+	//ll.PrintList();
 
-
+	//cout << "\n\nLasy:}" << endl;
+	//ll.DeleteLastItem();
+	//ll.PrintList();
 	//cout << "\nAfter :)\n" << endl;
 
 	//ll.Resize(10);
