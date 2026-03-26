@@ -59,19 +59,33 @@ int main()
 	//cout << "-------------------------------" << endl;
 	//Stack.Revers();
 	//Stack.print();
-	clsDynamicArray<int>ll(2);
+	clsDynamicArray<int>ll(9);
 	
-	ll.SetItem(0,2);
-	ll.SetItem(1, 3);
+	ll.SetItem(0,15);
+	ll.SetItem(1, 54);
+	ll.SetItem(2, 53);
+	ll.SetItem(3, 45);
+	ll.SetItem(4, 45);
+	ll.SetItem(5, 45);
+	ll.SetItem(6, 56);
+	ll.SetItem(7, 15);
+	ll.SetItem(8, 123);
+
 	cout << "Size" << ll.Size() << endl;
 	ll.PrintList();
 	cout << endl;
+	cout << "This Ietem : " << ll.GetItem(0) << endl;
 
-	cout << "\nAfter :)\n" << endl;
-
-	ll.Resize(10);
+	ll.Revers();
 	ll.PrintList();
-	cout << "\nSize" << ll.Size() << endl;
+	 
+	ll.Clear();
+	ll.PrintList();
+	//cout << "\nAfter :)\n" << endl;
+
+	//ll.Resize(10);
+	//ll.PrintList();
+	//cout << "\nSize" << ll.Size() << endl;
 
 	//ll.Resize(100);
 	//ll.PrintList();

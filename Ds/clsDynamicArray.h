@@ -39,8 +39,11 @@ int Size()
 }
 void PrintList()
 {
-	if (Original_Array == nullptr)return;
-
+	if (Original_Array == nullptr)
+	{
+		cout << "This Empty :) :) :) :) :) :)";
+		return;
+	}
 	for (int i = 0; i <= _Size-1; i++)
 	{
 		cout << " " << Original_Array[i];
@@ -71,46 +74,32 @@ void Resize(int NewResize)
 	Original_Array = _Temp_Array;
 }
 
+void Revers()
+{
+	//_Temp_Array = new T[_Size];
+	
+	for (int i = 0; i < _Size / 2;i++)
+	{
+		T Temp = Original_Array[i];
 
+		Original_Array[i] = Original_Array[_Size - 1 - i];
+		Original_Array[_Size - 1 - i] = Temp;
+	}
+	
+}
+void Clear()
+{
+	_Size = 0;
+	delete[]Original_Array;
+	Original_Array = nullptr;
+}
 
-//void Resize(int NewResize )
-//{	
-// 
-// ///---------------------------------------------////
-// NewResize = (NewResize > _Size) ? NewResize : (NewResize < 0) ? 0 : NewResize;
+T GetItem(int Index)
+{
+	if (IsEmpty())return T();
 
-//_Temp_Array new T[NewResize];
-//
-//for (int i = 0; i < _Size;i++)
-//{
-//	_Temp_Array[i] = Original_Array[i];
-//
-//}
-//
-//_Size = NewResize;
-//delete[] Original_Array;
-//
-//Original_Array = _Temp_Array;
-//____________________________________
-//	
-//	NewResize = (NewResize > _Size) ? NewResize  : (NewResize < 0) ? _Size : NewResize;
-//
-//	
-//	T* NewArray = new T[NewResize];
-//
-//	int ElementsToCopy = (NewResize < _Size) ? NewResize : _Size;
-//	for (int i = 0 ; i <= ElementsToCopy -1; i++)
-//	{
-//		NewArray[i] = Original_Array[i];
-//	}
-//
-//	delete[] Original_Array;
-//	
-//	Original_Array = NewArray;
-//
-//	_Size = NewResize;	
-//
-//
-//}	
+	return(Index < 0) ? Original_Array[0] : (Index >= _Size) ? Original_Array[_Size - 1] : Original_Array[Index];
+
+}
 
 };
