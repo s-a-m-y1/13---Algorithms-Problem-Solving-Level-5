@@ -107,7 +107,7 @@ public:
 	_Temp_Array[i] = Original_Array[i];
 
 	}
-	for (int i = Item + 1;i < _Size;i++)
+	for (int i = Item + 1;i < _Size+1;i++)
 	{
 		_Temp_Array[i - 1] = Original_Array[i];
 	}
@@ -122,7 +122,7 @@ public:
 
 		if (DeleteItem(0))
 		{
-			_Size--;
+			
 			return true;
 		}
 		return false;
@@ -131,7 +131,7 @@ public:
 	{
 		if (DeleteItem(_Size-1))
 		{
-			_Size--;
+			
 			return true;
 
 		}
@@ -162,5 +162,55 @@ bool DeleteItemByVal(T Val)
 	return false;
 
 }
+bool Insert(int Index, T Val)
+{
+	if (IsEmpty())return false;
+	/// Filter =
+	Index = (Index < 0) ? 0 : (Index >= _Size) ? _Size - 1 : Index;
+	_Size++;
+	_Temp_Array = new T[_Size];
+	for (int i = 0;i < Index; i++)
+	{
+		_Temp_Array[i] = Original_Array[i];
+
+	}
+	_Temp_Array[Index] = Val;
+	for (int i = Index ;i < _Size - 1;i++)///for (int i = Index ;i < _Size - 1;i++)
+	{
+		_Temp_Array[i + 1] = Original_Array[i];
+
+	}
+
+	delete[] Original_Array;
+	Original_Array = _Temp_Array;
+	return true;
+}
+
 };
 
+/*Size9
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+
+
+  1
+ 10
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+ -33686019
+
+
+A:\13 - Algorithms & Problem Solving Level 5\Ds\x64\Debug\Ds.exe (process 1704) exited with code 0 (0x0).
+To automatically c*/

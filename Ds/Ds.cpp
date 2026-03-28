@@ -75,14 +75,16 @@ int main()
 	ll.PrintList();
 	//cout << endl;
 	//cout << "This Ietem : " << ll.GetItem(0) << endl;
-	cout<<"The Val = "<< ll.FindByVal(3) << endl;
+	//cout<<"The Val = "<< ll.FindByVal(3) << endl;
 	
+cout << endl;
+	cout << endl;
+	//ll.DeleteItemByVal(3);
 
-	ll.DeleteItemByVal(3);
-
-	//ll.Revers();
+	////ll.Revers();
+	//ll.PrintList();
+	ll.Insert(3, 10);
 	ll.PrintList();
-	 
 	//ll.Clear();
 	//cout << endl;
 	//cout << endl;
