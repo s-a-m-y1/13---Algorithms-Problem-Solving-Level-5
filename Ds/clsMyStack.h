@@ -9,7 +9,7 @@ class clsMyStack:public clsMyQueue <T>
 public:
 	void push(T Val)
 	{
-		this->clsMyQueue<T>::Queue.InsertAtBeginning(Val);
+	this->clsMyQueue<T>::Queue.InsertAtBeginning(Val);
 	}
 
 	T Top()

@@ -1,14 +1,16 @@
 #include<iostream>
+#pragma once
 using namespace std;
 template<class T >
 class clsDynamicArray
 {
 	int _Size = 0;
+
 protected:
 	T* _Temp_Array = nullptr;
 	T* Original_Array = nullptr;
 public:
-
+	
 	clsDynamicArray(int Size = 0)
 	{
 		_Size = (Size < 0) ? 0 : Size;
@@ -138,7 +140,7 @@ public:
 		return false;
 
 	}
-	///  Find Array If IS true return Val IS Not return -1 
+	
 int	FindByVal(T Val )
 	{
 		for (int i = 0; i < _Size;i++)
@@ -166,7 +168,7 @@ bool Insert(int Index, T Val)
 {
 	if (IsEmpty())return false;
 	/// Filter =
-	Index = (Index < 0) ? 0 : (Index >= _Size) ? _Size - 1 : Index;
+	Index = (Index < 0) ? 0 : (Index > _Size) ? _Size : Index;
 	_Size++;
 	_Temp_Array = new T[_Size];
 	for (int i = 0;i < Index; i++)
@@ -186,31 +188,29 @@ bool Insert(int Index, T Val)
 	return true;
 }
 
+
+bool InsertAtBeginnig(T Val)
+{
+
+	return(Insert(0, Val));
+}
+
+bool InsertDefore(int Item, T Val)
+{
+
+	return(Insert(Item - 1, Val));
+}
+
+bool InsertAfter(int Item, T Val)
+{
+
+	return(Item >= _Size) ? Insert(Item + 1, Val) : Insert(Item - 1, Val);
+}
+
+bool InsertAtEnd( T Val)
+{
+
+	return(Insert( _Size , Val));
+}
+
 };
-
-/*Size9
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-
-
-  1
- 10
- 3
- 4
- 5
- 6
- 7
- 8
- 9
- -33686019
-
-
-A:\13 - Algorithms & Problem Solving Level 5\Ds\x64\Debug\Ds.exe (process 1704) exited with code 0 (0x0).
-To automatically c*/
