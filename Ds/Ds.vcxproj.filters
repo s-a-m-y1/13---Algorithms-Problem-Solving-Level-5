@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Ticket%255c">
+      <UniqueIdentifier>{e9a71d77-2983-468b-98b8-46f974409456}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Ds.cpp">
@@ -46,6 +49,9 @@
     </ClInclude>
     <ClInclude Include="clsQueueLine.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="newclsQueueLine.h">
+      <Filter>Header Files\Ticket%255c</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

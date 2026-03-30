@@ -124,7 +124,7 @@ public:
 			CpOr.pop();
 		}
 		
-		_stTicket Code;
+		
 		while (!Revres.empty())
 		{
 			_stTicket Code = Revres.top();
@@ -132,20 +132,23 @@ public:
 			Revres.pop();
 		
 		}
-
-		if (Revres.empty())
-		{
-			Code= Revres.top();
-			cout << Code._ClientCode;
-		}
-		
 	}
-	//void printTicketLineLTR()
-	//{
+	void printTicketLineLTR()
+	{
+		if (_QTicket.empty())
+		{
+			cout << "\n\t\t--- No Tickets in Queue ---" << endl;
+			return;
+		}
+		queue<_stTicket>CpOr = _QTicket;
+		while (!CpOr.empty())
+		{
+			_stTicket Code = CpOr.front();
+			cout << Code._ClientCode << "-->";
+			_QTicket.pop();
 
-
-
-	//}
+		}
+     }
 
 };
 	
