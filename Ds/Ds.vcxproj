@@ -130,12 +130,15 @@
     <ClCompile Include="Ds.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="clsClientPaper.h" />
+    <ClInclude Include="clsDate.h" />
     <ClInclude Include="clsDblLinkedList.h" />
     <ClInclude Include="clsDynamicArray.h" />
     <ClInclude Include="clsMyQueue.h" />
     <ClInclude Include="clsMyQueueArr.h" />
     <ClInclude Include="clsMyStack.h" />
     <ClInclude Include="clsMyStackArr.h" />
+    <ClInclude Include="clsQueueLine.h" />
     <ClInclude Include="clsString.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,55 +1,63 @@
-	#pragma once
-	#include<iostream>
-	#include<string>
-	#include"clsMyStack.h"
-
-	class clsString
+#pragma once
+#include<string>
+#include<stack>
+using namespace std;
+class clsString
+{
+	/// Converts Stacks 
+	stack<string>_Undo;
+	stack<string>_Redo;
+	string _Val = "";
+	/// convert Encaclathon /  
+public:
+	void Set(string val )
 	{
-	private:
-		string _Last = "";
-		clsMyStack<string>_Stack_Redo;
-		clsMyStack<string>_Stack_Undo;
-	public:
-	
-		 void SetValue (string Val )
-		{ 
-			 _Stack_Undo.push(_Last);
-			 _Last = Val;
-		}
-	
+		_Undo.push(_Val);
+		_Val = val;
+	}
 
-		string GetValue()	
-		{ 
-			return _Last;
-		}
-		__declspec(property(get = GetValue, put = SetValue)) string Value;
-
-		void Undo()
+	string Get()
+	{
+		return _Val;
+	}
+	__declspec(property(get = Get, put = Set))string Value;
+	void Undo()
+	{
+		if (!_Undo.empty())
 		{
-			if (_Stack_Undo.Size() >= 1)
-			{
-				_Stack_Redo.push(_Last);
+			/// Push To Redo Stack Because Need This 
+			_Redo.push(_Val);
+
+			/// Update VAl Screen To Show /
+
+			_Val = _Undo.top();
 
 
-				_Last = _Stack_Undo.Top();
+			/// remove From Undo 
 
-				_Stack_Undo.pop();
-			}
-			return;
+			_Undo.pop();
 		}
 
-		void Redo()
+
+
+	}
+	void Redo()
+	{
+		if (!_Redo.empty())
 		{
-			if (_Stack_Redo.Size() >0)
-			{
-				_Stack_Undo.push(_Last);
+			/// Push To Undo Stack Because Need This 
+			_Undo.push(_Val);
+
+			/// Update VAl Screen To Show /
+
+			_Val = _Redo.top();
 
 
-				_Last = _Stack_Redo.Top();
+			/// remove From Undo 
 
-				_Stack_Redo.pop();
-			}
-			return;
+			_Redo.pop();
 		}
-	};
-	///: LIFO (Last-In, First-Out).
+	}
+
+};
+

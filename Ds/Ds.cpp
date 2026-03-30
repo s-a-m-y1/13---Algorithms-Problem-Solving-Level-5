@@ -6,6 +6,7 @@ using namespace std;
 #include"clsMyQueueArr.h"
 #include"clsDynamicArray.h"
 #include"clsMyQueue.h"
+#include"clsQueueLine.h"
 #include"clsString.h"
 //#include"clsMyStackArr.h"
 int main()
@@ -50,23 +51,23 @@ int main()
 //	Queue.Clear();
 //	Queue.print();
 	/// prtacts here 
-	clsMyStack<string>Stack;
-	Stack.push("samy");
-	Stack.push("Git");
-	Stack.push("GitHub");
-	Stack.push("Repo");
-	Stack.print();
-	cout << "-------------------------------" << endl;
-	cout << "Size : " << Stack.Size() << endl;
-	cout << "Top  This Last In : " << Stack.Top() << endl;
-	cout << "Bottom First : " << Stack.Bottom() << endl;
-	cout << "-------------------------------" << endl;
-	Stack.Revers();
-	cout << "-------------------------------" << endl;
-	cout << "Size : " << Stack.Size() << endl;
-	cout << "Top  This Last In : " << Stack.Top() << endl;
-	cout << "Bottom First : " << Stack.Bottom() << endl;
-	cout << "-------------------------------" << endl;
+	//clsMyStack<string>Stack;
+	//Stack.push("samy");
+	//Stack.push("Git");
+	//Stack.push("GitHub");
+	//Stack.push("Repo");
+	//Stack.print();
+	//cout << "-------------------------------" << endl;
+	//cout << "Size : " << Stack.Size() << endl;
+	//cout << "Top  This Last In : " << Stack.Top() << endl;
+	//cout << "Bottom First : " << Stack.Bottom() << endl;
+	//cout << "-------------------------------" << endl;
+	//Stack.Revers();
+	//cout << "-------------------------------" << endl;
+	//cout << "Size : " << Stack.Size() << endl;
+	//cout << "Top  This Last In : " << Stack.Top() << endl;
+	//cout << "Bottom First : " << Stack.Bottom() << endl;
+	//cout << "-------------------------------" << endl;
 	//clsDynamicArray<int>ll(9);
 	//
 	//ll.SetItem(0,1);
@@ -154,7 +155,14 @@ int main()
 //MYStr.Redo();
 //cout << MYStr.Value << endl;
 //cout << "\n===============================" << endl;
-
+clsQueueLine Ticket("A0" , 10);
+Ticket.IssueTiket();
+Ticket.IssueTiket();
+Ticket.IssueTiket();
+Ticket.IssueTiket();
+Ticket.IssueTiket();
+Ticket.IssueTiket();
+Ticket.pritAllTiketd();
 
 return 0;
 }
