@@ -130,7 +130,6 @@
     <ClCompile Include="Ds.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="clsClientPaper.h" />
     <ClInclude Include="clsDate.h" />
     <ClInclude Include="clsDblLinkedList.h" />
     <ClInclude Include="clsDynamicArray.h" />

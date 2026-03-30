@@ -155,15 +155,24 @@ int main()
 //MYStr.Redo();
 //cout << MYStr.Value << endl;
 //cout << "\n===============================" << endl;
-clsQueueLine Ticket("A0" , 10);
-Ticket.IssueTiket();
-Ticket.IssueTiket();
-Ticket.IssueTiket();
-Ticket.IssueTiket();
-Ticket.IssueTiket();
-Ticket.IssueTiket();
-Ticket.pritAllTiketd();
 
+clsQueueLine MYLIne("A0", 10);
+MYLIne.IssueTicket();
+MYLIne.IssueTicket();
+MYLIne.IssueTicket();
+MYLIne.IssueTicket();
+MYLIne.IssueTicket();
+
+
+MYLIne.printInfo();
+
+MYLIne.PrintAllTickets();
+
+
+MYLIne.ServeNextClient();
+MYLIne.printInfo();
+
+MYLIne.printTicketLineRTL();
 return 0;
 }
 //git@github.com:s-a-m-y1/13---Algorithms-Problem-Solving-Level-5.git

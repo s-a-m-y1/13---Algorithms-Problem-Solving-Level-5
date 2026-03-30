@@ -1,148 +1,151 @@
 #pragma once
 #include<iostream>
-#include<stack>
-#include<queue>
 #include<string>
+#include<queue>
+#include<stack>
 #include"clsDate.h"
-#include"clsClientPaper.h"
 using namespace std;
 class clsQueueLine
 {
-	/// counter And this  Code //
-	int _TotalTickets = 0;
-	int _ServedTime_Minutes = 0;
-	int _ServedClient = 0;
-	string _Perefix;
-
-	queue <clsClientPaper>_QueueTickets;
-	void printScreen(clsClientPaper&Ticket)
+private:
+	string _Prefix = "";///example A0>>>>>
+	int _IssuedTicketsCount = 0;     
+	int _ServedClientsCount = 0;     /// al baky
+	int _AverageServeTime = 0;/// Minutes
+	int _WatingClient = 0;
+	
+	struct _stTicket
 	{
-		cout << "\n===========================" << endl;
-		cout << "\t\t" << Ticket.CLient_Code << endl;
-		cout << "\n===========================" << endl;
-		cout << " " << Ticket.DateAndTime << endl;
-		cout << "WatingClient : " << Ticket.watingClient << endl;
-		cout << "SarveTm Min  : " << Ticket._ServeTimeIn << endl;
-		cout << "\n===========================" << endl;
-	}
+		string _ClientCode = "";
+		string _DateTime = "";
+		int _WaitingClients = 0;
+		int _ServedTimeInMinutes = 0;
+	};
+	_stTicket Ticket;
+	queue<_stTicket>_QTicket;
 
+	void _PrintTicket(_stTicket Ticket1)
+	{
+		cout << "\t\t|=========================|" << endl;
+		cout << "\t\t\t " << Ticket1._ClientCode << endl;
+		cout << "\t\t|=========================|" << endl;
+		cout << "\t\t" << Ticket1._DateTime << endl;
+		cout << "\t\tWating Client = " << Ticket1._WaitingClients << endl;
+		cout << "\t\tServe Time In " << Ticket1._ServedTimeInMinutes << "Minutes" << endl;
+		cout << "\t\t|=========================|" << endl;
+	}
 public:
-	clsQueueLine(string Perefix, int minutes) 
+
+
+	clsQueueLine(string prefix, int AverageServeTime)
 	{
-		_Perefix =  Perefix;
-		_ServedTime_Minutes = minutes;
+		_Prefix = prefix;
+
+		_AverageServeTime = AverageServeTime;
 	}
 
-	void IssueTiket()
+	void IssueTicket()
 	{
-		///  This convert Tiket
-		string Code = _Perefix + to_string(_TotalTickets);
-		string dateATime = clsDate::DateAndTime();
-		int Wating = _QueueTickets.size();
-		int WatingTime = Wating * _ServedTime_Minutes;
-		
-		clsClientPaper Ticket(Code, dateATime, Wating, WatingTime);
-		_QueueTickets.push(Ticket);
-		_TotalTickets++;
+		string Code = _Prefix + to_string(_IssuedTicketsCount);
+
+		string  DateTime = clsDate::DateAndTime();
+
+		int watingClient = _QTicket.size() ;
+
+		Ticket._ClientCode = Code;
+		Ticket._DateTime = DateTime;
+		Ticket._ServedTimeInMinutes = watingClient* _AverageServeTime;
+		Ticket._WaitingClients = watingClient;
+
+
+		_QTicket.push(Ticket);
+		_IssuedTicketsCount++;
+
 	}
-	void printTiketRTL()
+
+	void ServeNextClient()
 	{
 	
-		if (_QueueTickets.empty())
+		if (!_QTicket.empty())
 		{
-			cout << "Empty";
-			return;
+			_ServedClientsCount++;
+			_QTicket.pop();
 		}
-
-		queue <clsClientPaper>Temp = _QueueTickets;
-
-			while (!Temp.empty())
-			{
-			
-				clsClientPaper Ticket = Temp.front();
-				cout << " " << Ticket.CLient_Code << "<--";
-				Temp.pop();
-			}
 		
-			
+
 	}
 
-	void printTiketLTR()
+	void printInfo()const
 	{
-		if (_QueueTickets.empty())
+		cout << "\n\t\t|=========================|" << endl;
+		cout << "\t\t       Queue Info        " << endl;
+		cout << "\t\t|=========================|" << endl;
+
+		cout << "\t\t  Prefix         : " << _Prefix << endl;
+		cout << "\t\t  Total Tickets  : " << _IssuedTicketsCount << endl;
+		cout << "\t\t  Served Clients : " << _ServedClientsCount << endl;
+		cout << "\t\t  Waiting Clients: " << _QTicket.size() << endl;
+
+		cout << "\t\t|=========================|" << endl;
+
+	}
+	void PrintAllTickets()
+	{
+		if (_QTicket.empty())
 		{
-			cout << "Empty";
+			cout << "\n\t\t--- No Tickets in Queue ---" << endl;
 			return;
 		}
+		queue<_stTicket>qTicket = _QTicket;
 
-		// 1. بنستخدم Stack عشان نعكس الترتيب
-		stack<clsClientPaper> s;
-		queue<clsClientPaper> Temp = _QueueTickets;
-
-		// 2. بننقل من الـ Queue للـ Stack
-		while (!Temp.empty())
-		{
-			s.push(Temp.front());
-			Temp.pop();
-		}
-
-		// 3. بنطبع من الـ Stack (هيطلعوا بالعكس LTR)
-		while (!s.empty())
-		{
-			cout << "--> " << s.top().CLient_Code << " ";
-			s.pop();
-		}
-	}
 	
-
-	void printInfo()
-	{
-		// ملاحظة: الـ _wateClient محتاج يتحدث بناء على الحجم الحالي للطابور
-		int currentWaiting = _QueueTickets.size();
-
-		cout << "\n\t\t:================:" << endl;
-		cout << "\t\t   Queue Info" << endl;
-		cout << "\n\t\t:================:" << endl;
-		cout << "\t\t Prefix       : " << _Perefix << endl;
-		cout << "\t\t Total Tickets: " << _TotalTickets << endl;
-		cout << "\t\t Served Clients: " << _ServedClient << endl;
-		cout << "\t\t Waiting Clients: " << currentWaiting << endl; // الأفضل تستخدم size() مباشرة
-		cout << "\n\t\t:================:" << endl;
-	}
-	clsClientPaper	 ServeNextClient()
-	{
-		if (!_QueueTickets.empty())
+		while (!qTicket.empty())
 		{
-			clsClientPaper ServeNext = _QueueTickets.front();
-		     
-			_QueueTickets.pop();
-			_ServedClient++;
-			return ServeNext;
+			_PrintTicket(qTicket.front());
+			qTicket.pop();
 		}
-		
-		return clsClientPaper("", "", 0, 0);
 
 	}
-	void pritAllTiketd()
+	void printTicketLineRTL()
 	{
-		if (_QueueTickets.empty())
+
+		if (_QTicket.empty())
 		{
-			cout << "Empty";
+			cout << "\n\t\t--- No Tickets in Queue ---" << endl;
 			return;
 		}
 
-		queue <clsClientPaper>Temp = _QueueTickets;
-
-		while (!Temp.empty())
+		queue<_stTicket>CpOr = _QTicket;
+		stack<_stTicket> Revres;
+		while (!CpOr.empty())
 		{
-			clsClientPaper Ticket = Temp.front();
-			printScreen(Ticket);
-			Temp.pop();
+
+			Revres.push(CpOr.front());
+			CpOr.pop();
+		}
+		
+		_stTicket Code;
+		while (!Revres.empty())
+		{
+			_stTicket Code = Revres.top();
+			cout << Code._ClientCode << "-->";
+			Revres.pop();
+		
 		}
 
+		if (Revres.empty())
+		{
+			Code= Revres.top();
+			cout << Code._ClientCode;
+		}
+		
 	}
+	//void printTicketLineLTR()
+	//{
 
 
+
+	//}
 
 };
-
+	
